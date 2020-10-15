@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Fisica</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link href="./open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+</head>
+<body>
+	<div id="appFisica">
+		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+			<a class="navbar-brand" href="javascript:;">Grupo #2</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="collapsibleNavbar">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" href="javascript:;" @click="abrirPantalla(1)">Resistencia</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="javascript:;" @click="abrirPantalla(2)">Capacitacia</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="javascript:;" @click="abrirPantalla(3)">Inductancia</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="javascript:;" @click="abrirPantalla(4)">Acerca de</a>
+					</li>
+				</ul>
+			</div>  
+		</nav>
+		<main class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<form-resistencia
+					v-if ="pantalla == 1"
+					:key ="Math.random()"
+					>	
+					</form-resistencia>
+
+					<acerca-de
+					v-if ="pantalla == 4"
+					:key ="Math.random()"
+					>	
+					</acerca-de>
+				</div>
+			</div>
+		</main>
+	</div>
+
+	<template id="form-resistencia">
+		<div class="well well-sm">
+			<div class="row">
+				<div class="col-sm-4">
+					<ul class="nav nav-pills flex-column">
+						<li class="nav-item">
+							<a href="javascript:;" class="nav-link" :class="tipo == 1 ? 'active': ''" @click="setTipo(1)">En Serie</a>
+						</li>
+						<li class="nav-item">
+							<a href="javascript:;" class="nav-link" :class="tipo == 2 ? 'active': ''" @click="setTipo(2)">En Paralelo</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-sm-8">
+					<h2>Resistencia en {{ (tipo == 1) ? 'Equivalente' : 'Paralelo' }}</h2>
+					<form class="form-horizontal" @submit.prevent="calcularResistencia">
+						<template v-for="i in cntInput">
+							<div class="form-group form-group-sm row">
+								<div class="input-group col-sm-7">
+									<div class="input-group-prepend">
+										<button type="button" class="btn btn-sm btn-danger" @click="removerInput(i)">										
+											<i class="oi oi-trash"></i>
+										</button>
+									</div>
+									<input type="number" class="form-control" step="0.01" v-model="form.resistencia[i]" :placeholder="'R'+i" required>
+								</div>
+							</div>
+						</template>
+						<div class="form-group form-group-sm row">
+							<div class="col-sm-7">
+								<button type="button" class="btn btn-sm btn-secondary btn-block" @click="nuevoInput"><i class="oi oi-plus"></i></button>
+							</div>
+							<div class="col-sm-2">
+								<button type="submit" class="btn btn-sm btn-info btn-block"><i class="oi oi-calculator"></i></button>
+							</div>
+							<div class="col-sm-2">
+								<p><b>Resultado: {{ parseFloat(resultado).toLocaleString("en") }}</b></p>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<template id="acerca-de">
+		<div class="well well-sm">
+			<p>1990-18-11944 Claudia Liliana Quinac Can</p>
+			<p>1990-18-20242 Cristopher Jonathan Locón Hernández</p>
+			<p>1990-18-21876 Romulo Denilson Espantzay Raxjal</p>
+			<p>1990-18-23079 Edwin René Batz Yos</p>
+		</div>
+	</template>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="./acerca.js"></script>
+	<script src="./resistencia.js"></script>
+	<script src="./script.js"></script>
+</body>
+</html>
