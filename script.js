@@ -21,6 +21,8 @@ var appFisica = new Vue({
 	},
 	components: {
 		"form-resistencia": formResistencia,
+		"form-capacitancia": formCapacitancia,
+		"form-inductancia": formInductancia,
 		"acerca-de": acercaDe
 	},
 	watch: {
