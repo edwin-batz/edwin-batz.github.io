@@ -18,7 +18,8 @@ let formInductancia = {
 				9:{"nombre": "Kilohenrio", "valor": 1000, "titulo": "kH"},
 				10:{"nombre": "Megahenrio", "valor": 1000000, "titulo": "MH"},
 				11:{"nombre": "Gigahenrio", "valor": 1000000000, "titulo": "GH"},
-				12:{"nombre": "Terahenrio", "valor": 1000000000000, "titulo": "TH"}
+				12:{"nombre": "Terahenrio", "valor": 1000000000000, "titulo": "TH"},
+				13:{"nombre": "Henrio", "valor": 1, "titulo": "H"}
 			},
 			form: {
 				inductancia: [],

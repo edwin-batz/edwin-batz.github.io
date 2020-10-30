@@ -18,7 +18,9 @@ let formResistencia = {
 				9:{"nombre": "Kiloohmio", "valor": 1000, "titulo":	"kΩ"},
 				10:{"nombre": "Megaohmio", "valor": 1000000, "titulo":	"MΩ"},
 				11:{"nombre": "Gigaohmio", "valor": 1000000000, "titulo":	"GΩ"},
-				12:{"nombre": "Teraohmio", "valor": 1000000000000, "titulo":	"TΩ"}
+				12:{"nombre": "Teraohmio", "valor": 1000000000000, "titulo":	"TΩ"},
+				13: {"nombre": "Ohmio", "valor": 1, "titulo": "Ω"}
+
 			},
 			form: {
 				resistencia: [],

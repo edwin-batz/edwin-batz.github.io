@@ -18,7 +18,8 @@ let formCapacitancia = {
 				9:{"nombre": "Kilofaradio", "valor": 1000, "titulo":"kF"},
 				10:{"nombre": "Megafaradio", "valor": 1000000, "titulo":"MF"},
 				11:{"nombre": "Gigafaradio", "valor": 1000000000, "titulo":"GF"},
-				12:{"nombre": "Terafaradio", "valor": 1000000000000, "titulo":"TF"}
+				12:{"nombre": "Terafaradio", "valor": 1000000000000, "titulo":"TF"},
+				13: {"nombre": "Faradio", "valor": 1, "titulo": "F"}
 			},
 			form: {
 				capacitancia: [],
