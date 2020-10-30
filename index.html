@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -90,6 +90,11 @@
 											</button>
 										</div>
 										<input type="number" class="form-control" step="any" v-model="form.resistencia[i]" :placeholder="'R'+i" required>
+										<div class="input-group-append">
+											<select class="form-control" v-model="form.medida[i]" required>
+												<option v-for="(i, k) in medidas" :value="k" :title="i.nombre">{{ i.titulo }}</option>
+											</select>
+										</div>
 									</div>
 								</div>
 							</template>
@@ -100,9 +105,17 @@
 								<div class="col-sm-2">
 									<button type="submit" class="btn btn-sm btn-info btn-block"><i class="oi oi-calculator"></i></button>
 								</div>
-								<div class="col-sm-2">
-									<p><b>Resultado: {{ parseFloat(resultado).toLocaleString("en") }}</b></p>
-								</div>
+							</div>
+							<div class="form-group form-group-sm row">
+								<label class="control-label col-sm-5">
+									Resultado: <br>
+									Decimal: {{resultado}} <br>
+									Notación: {{ $parent.notacion(resultado) }}
+								</label>
+
+								<select class="form-control col-sm-2" v-model="medidafinal" @change="calcularResistencia" required>
+							 		<option v-for="(i, k) in medidas" :value="k" :title="i.nombre">{{ i.titulo }}</option>
+							 	</select>
 							</div>
 						</form>
 					</div>
@@ -136,7 +149,12 @@
 												<i class="oi oi-trash"></i>
 											</button>
 										</div>
-										<input type="number" class="form-control" step="any" v-model="form.capacitancia[i]" :placeholder="'R'+i" required>
+										<input type="number" class="form-control" step="any" v-model="form.capacitancia[i]" :placeholder="'C'+i" required>
+										<div class="input-group-append">
+											<select class="form-control" v-model="form.medida[i]" required>
+												<option v-for="(i, k) in medidas" :value="k" :title="i.nombre">{{ i.titulo }}</option>
+											</select>
+										</div>
 									</div>
 								</div>
 							</template>
@@ -147,9 +165,17 @@
 								<div class="col-sm-2">
 									<button type="submit" class="btn btn-sm btn-info btn-block"><i class="oi oi-calculator"></i></button>
 								</div>
-								<div class="col-sm-2">
-									<p><b>Resultado: {{ parseFloat(resultado).toLocaleString("en") }}</b></p>
-								</div>
+							</div>
+							<div class="form-group form-group-sm row">
+								<label class="control-label col-sm-5">
+									Resultado: <br>
+									Decimal: {{resultado}} <br>
+									Notación: {{ $parent.notacion(resultado) }}
+								</label>
+
+								<select class="form-control col-sm-2" v-model="medidafinal" @change="calcularCapacitancia" required>
+							 		<option v-for="(i, k) in medidas" :value="k" :title="i.nombre">{{ i.titulo }}</option>
+							 	</select>
 							</div>
 						</form>
 					</div>
@@ -183,7 +209,12 @@
 												<i class="oi oi-trash"></i>
 											</button>
 										</div>
-										<input type="number" class="form-control" step="any" v-model="form.inductancia[i]" :placeholder="'R'+i" required>
+										<input type="number" class="form-control" step="any" v-model="form.inductancia[i]" :placeholder="'I'+i" required>
+										<div class="input-group-append">
+											<select class="form-control" v-model="form.medida[i]" required>
+												<option v-for="(i, k) in medidas" :value="k" :title="i.nombre">{{ i.titulo }}</option>
+											</select>
+										</div>
 									</div>
 								</div>
 							</template>
@@ -194,9 +225,17 @@
 								<div class="col-sm-2">
 									<button type="submit" class="btn btn-sm btn-info btn-block"><i class="oi oi-calculator"></i></button>
 								</div>
-								<div class="col-sm-2">
-									<p><b>Resultado: {{ parseFloat(resultado).toLocaleString("en") }}</b></p>
-								</div>
+							</div>
+							<div class="form-group form-group-sm row">
+								<label class="control-label col-sm-5">
+									Resultado: <br>
+									Decimal: {{resultado}} <br>
+									Notación: {{ $parent.notacion(resultado) }}
+								</label>
+
+								<select class="form-control col-sm-2" v-model="medidafinal" @change="calcularInductancia" required>
+							 		<option v-for="(i, k) in medidas" :value="k" :title="i.nombre">{{ i.titulo }}</option>
+							 	</select>
 							</div>
 						</form>
 					</div>
